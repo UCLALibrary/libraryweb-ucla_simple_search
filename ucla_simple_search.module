@@ -18,7 +18,6 @@ function ucla_simple_search_custom_form($form, &$form_state) {
     '#title' => 'Choose one:',
     '#title_display' => 'invisible',
     '#options' => array (
-'FAKE' => 'Fake for testing',
       'site' => 'Web Site Search',
       'melvyl' => 'Melvyl UC Catalog',
       'catalog' => 'UCLA Library Catalog',
