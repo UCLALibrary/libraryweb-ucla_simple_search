@@ -59,7 +59,7 @@ function ucla_simple_search_custom_form_submit($form, &$form_state) {
   // and HTTP_X_FORWARDED_FOR = IP of remote user
   $browser_ip = (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
   // Use simpler string for search_form in logging table
-  $search_form = 'ucla_search';
+  $search_form = 'simple_search';
 
   // Put form info into array expected by search logger / handlers
   $search_info = array (
@@ -81,7 +81,7 @@ function ucla_simple_search_custom_form_submit($form, &$form_state) {
  * Implements hook_block_info() to define a new block for the custom form
  */
 function ucla_simple_search_block_info() {
-  $blocks['ucla_search'] = array(
+  $blocks['ucla_simple_search'] = array(
     'info' => t('UCLA Custom Search Block'),
     'cache' => DRUPAL_NO_CACHE,
   );
@@ -94,7 +94,7 @@ function ucla_simple_search_block_info() {
 function ucla_simple_search_block_view( $delta = '') {
   $block = array();
   switch ($delta) {
-    case 'ucla_search':
+    case 'ucla_simple_search':
       $block['title'] = 'UCLA Search';
       $block['content'] = drupal_render(drupal_get_form('ucla_simple_search_custom_form'));
       break;
